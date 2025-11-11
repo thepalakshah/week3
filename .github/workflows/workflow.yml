@@ -3,7 +3,7 @@ name: auth-workflow.yml
 on:
     push:
         branches:
-            - "main"
+            - "master"
         paths:
             - "**.js"
 

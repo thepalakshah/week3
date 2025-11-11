@@ -13,3 +13,4 @@ const verifyRefresh = (token) =>
     jwt.verify(token, process.env.JWT_REFRESH_SECRET);
 
 module.exports = { signAccess, signRefresh, verifyAccess, verifyRefresh };
+// Testing GitHub Actions CI Pipeline - Lab 6
