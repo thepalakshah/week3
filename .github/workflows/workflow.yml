@@ -1,13 +1,16 @@
 name: auth-workflow.yml
+
 on:
   push:
     branches:
       - "master"
     paths:
       - "**.js"
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     services:
       mongo:
         image: mongo:latest
@@ -18,20 +21,21 @@ jobs:
           --health-interval=10s 
           --health-timeout=5s 
           --health-retries=5
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Use Node.js 20
+
+      - name: Use Node.js 24
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 24
+
       - name: Install dependencies
         run: npm install
-      - name: Create .env file
-        run: |
-          echo "PORT=8000" >> .env
-          echo "MONGODB_URI=mongodb://localhost:27017/test_db" >> .env
-          echo "JWT_SECRET=test_secret_key_for_ci" >> .env
-          echo "NODE_ENV=test" >> .env
+
+      - name: Start app
+        run: npm start &
+
       - name: Run tests
         run: npx jest
