@@ -3,9 +3,7 @@ name: workflow.yml
 on:
   push:
     branches:
-      - "main"
-    paths:
-      - "**.js"
+      - main
 
 jobs:
   test:
