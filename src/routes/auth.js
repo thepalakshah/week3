@@ -131,3 +131,4 @@ router.get('/me', require('../middleware/requireAuth'), async (req, res) => {
 });
 
 module.exports = router;
+// Testing GitHub Actions CI Pipeline - Lab 6
