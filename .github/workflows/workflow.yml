@@ -3,7 +3,7 @@ name: auth-workflow.yml
 on:
   push:
     branches:
-      - "master"
+      - "main"
     paths:
       - "**.js"
 
@@ -38,4 +38,4 @@ jobs:
         run: npm start &
 
       - name: Run tests
-        run: npx jest
+        run: npm test
